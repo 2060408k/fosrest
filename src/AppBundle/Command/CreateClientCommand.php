@@ -8,6 +8,7 @@
 
 namespace AppBundle\Command;
 
+use FOS\OAuthServerBundle\Model\ClientManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
@@ -47,6 +48,7 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** @var ClientManager $clientManager */
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
         $client->setRedirectUris($input->getOption('redirect-uri'));

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -22,9 +23,16 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * One User has Many BookProjects.
+     * @ORM\OneToMany(targetEntity="BookProject", mappedBy="user")
+     */
+    private $bookProjects;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+
+        $this->bookProjects = new ArrayCollection();
     }
 }
