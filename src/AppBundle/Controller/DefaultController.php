@@ -163,7 +163,7 @@ class DefaultController extends Controller
 
         $entityManager = $this->getDoctrine()->getManager();
         $bookProjectRepo = $entityManager->getRepository(BookProject::class);
-        $bookProject = $bookProjectRepo->find('id');
+        $bookProject = $bookProjectRepo->find($id);
         $entityManager->remove($bookProject);
         $entityManager->flush();
 
