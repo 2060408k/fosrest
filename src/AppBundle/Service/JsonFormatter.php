@@ -8,7 +8,6 @@
 
 namespace AppBundle\Service;
 
-
 use AppBundle\Entity\Character;
 
 class JsonFormatter {
@@ -24,7 +23,10 @@ class JsonFormatter {
 
 		foreach($input as $element)
 		{
-			$output[]=$element->expose();
+		    if(method_exists($element,'expose')){
+                $output[]=$element->expose();
+            }
+
 		}
 
 		return json_encode($output);

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pkourtellos
- * Date: 16/08/2017
- * Time: 15:28
- */
 
 namespace AppBundle\Entity;
 
@@ -92,7 +86,6 @@ class Chapter
 	{
 		$this->characters = new ArrayCollection();
 		$this->events = new ArrayCollection();
-		$this->bookProject = new ArrayCollection();
 	}
 
 	/**
@@ -182,4 +175,22 @@ class Chapter
 	public function setEvents( $events ) {
 		$this->events = $events;
 	}
+
+    /**
+     * @return mixed
+     */
+    public function getBookProject()
+    {
+        return $this->bookProject;
+    }
+
+    /**
+     * @param mixed $bookProject
+     */
+    public function setBookProject($bookProject)
+    {
+        $this->bookProject = $bookProject;
+    }
+
+
 }

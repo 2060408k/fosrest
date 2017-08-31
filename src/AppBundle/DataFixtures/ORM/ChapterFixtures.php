@@ -49,6 +49,9 @@ class ChapterFixtures extends AbstractFixture implements OrderedFixtureInterface
 		$chapter2->setEvents($chapter2Events);
 		$manager->persist($chapter2);
 
+        $this->addReference('chapter-chapter2',$chapter2);
+        $this->addReference('chapter-chapter1',$chapter1);
+
 		$manager->flush();
 	}
 

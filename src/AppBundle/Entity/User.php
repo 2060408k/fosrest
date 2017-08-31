@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
  * @ORM\Table(name="user")
  * @UniqueEntity("username")
  * @UniqueEntity("email")
@@ -35,4 +35,26 @@ class User extends BaseUser
 
         $this->bookProjects = new ArrayCollection();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBookProjects()
+    {
+        return $this->bookProjects;
+    }
+
+    /**
+     * @param mixed $bookProjects
+     */
+    public function setBookProjects($bookProjects)
+    {
+        $this->bookProjects = $bookProjects;
+    }
+
+    public function expose() {
+        return get_object_vars($this);
+    }
+
+
 }

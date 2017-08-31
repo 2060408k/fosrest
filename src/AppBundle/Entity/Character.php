@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pkourtellos
- * Date: 17/08/2017
- * Time: 08:51
- */
 
 namespace AppBundle\Entity;
 
@@ -96,7 +90,6 @@ class Character
 	{
 		$this->chapters = new ArrayCollection();
 		$this->events = new ArrayCollection();
-        $this->bookProject = new ArrayCollection();
 	}
 
 	/**

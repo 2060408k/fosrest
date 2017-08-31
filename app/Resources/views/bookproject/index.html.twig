@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bookprojects list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bookProject in bookProjects %}
+            <tr>
+                <td><a href="{{ path('bookproject_show', { 'id': bookProject.id }) }}">{{ bookProject.id }}</a></td>
+                <td>{{ bookProject.name }}</td>
+                <td>{{ bookProject.content }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bookproject_show', { 'id': bookProject.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
